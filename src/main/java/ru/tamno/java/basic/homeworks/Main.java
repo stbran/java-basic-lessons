@@ -22,8 +22,10 @@ public class Main {
         findEqualPoint(new int[]{9, 4});
         System.out.println("Отсортирован ли массив по возрастанию: " + isArraySortAsc(new int[]{1, 2, 3, 4, 5, 6}) + "\n");
         System.out.println("Отсортирован ли массив по убыванию: " + isArraySortDesc(new int[]{1, 0, -1, -2, -5, -6}) + "\n");
-        System.out.println(Arrays.toString(reverseArray(new int[]{7, 6, 3, 2})));
+        System.out.println("Реверс массива:");
+        System.out.println(Arrays.toString(reverseArray(initArray())));
     }
+
     public static int[] initArray() {
         int[] arr = new int[(int) (Math.random() * 20) + 2];
         for (int i = 0; i < arr.length; i++) {
@@ -141,13 +143,14 @@ public class Main {
     }
 
     public static int[] reverseArray(int[] arr) {
-//        System.out.println("Реверс массива" + Arrays.toString(arr));
-        int[] arrReverse = new int[arr.length];
-        int j = 0;
-        for (int i = arr.length - 1; i >= 0; i--) {
-            arrReverse[j] = arr[i];
-            j++;
+        int j = arr.length - 1;
+        int tmp = 0;
+        for (int i = 0; i < arr.length / 2; i++) {
+            tmp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = tmp;
+            j--;
         }
-        return arrReverse;
+        return arr;
     }
 }
