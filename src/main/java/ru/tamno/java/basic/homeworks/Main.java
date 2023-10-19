@@ -20,8 +20,8 @@ public class Main {
         findEqualPoint(new int[]{5, 3, 4, -2});
         findEqualPoint(new int[]{7, 2, 2, 2});
         findEqualPoint(new int[]{9, 4});
-        System.out.println("Отсортирован ли массив по возрастанию: " + isArraySortAsc(new int[]{1, 2, 3, 4, 5, 6}) + "\n");
-        System.out.println("Отсортирован ли массив по убыванию: " + isArraySortDesc(new int[]{1, 0, -1, -2, -5, -6}) + "\n");
+        System.out.println("Отсортирован ли массив по возрастанию: " + isArraySortAsc(new int[]{1, 4, 3, 4, 5, 6}) + "\n");
+        System.out.println("Отсортирован ли массив по убыванию: " + isArraySortDesc(new int[]{-1, 0, -1, -2, -5, -6}) + "\n");
         System.out.println("Реверс массива:");
         System.out.println(Arrays.toString(reverseArray(initArray())));
     }
@@ -80,9 +80,13 @@ public class Main {
         for (int i = arr.length / 2; i < arr.length; i++) {
             sum2 += arr[i];
         }
-        if (sum1 > sum2) System.out.println("Сумма элементов первой половины массива больше");
-        else if (sum1 < sum2) System.out.println("Сумма элементов второй половины массива больше");
-        else System.out.println("Сумма элементов обеих половин массива равна");
+        if (sum1 > sum2) {
+            System.out.println("Сумма элементов первой половины массива больше");
+        } else if (sum1 < sum2) {
+            System.out.println("Сумма элементов второй половины массива больше");
+        } else {
+            System.out.println("Сумма элементов обеих половин массива равна");
+        }
         System.out.println();
     }
 
@@ -110,18 +114,23 @@ public class Main {
     }
 
     public static void findEqualPoint(int[] arr) {
+        int sum = arr[0];
+        int sumOthers = sumAllArrayElements(arr) - sum;
         for (int i = 1; i < arr.length; i++) {
-            if (sumArrayElements(arr, 0, i) == sumArrayElements(arr, i, arr.length)) {
+            if (sumOthers == sum) {
                 System.out.println("Точка равновесия массива " + Arrays.toString(arr) + " находится между " + (i - 1) + " и " + i + " элементами\n");
                 return;
+            } else {
+                sumOthers -= arr[i];
+                sum += arr[i];
             }
         }
         System.out.println("Точка равновесия массива " + Arrays.toString(arr) + " отсутствует\n");
     }
 
-    public static int sumArrayElements(int[] arr, int start, int end) {
+    public static int sumAllArrayElements(int[] arr) {
         int sum = 0;
-        for (int i = start; i < end; i++) {
+        for (int i = 0; i < arr.length; i++) {
             sum += arr[i];
         }
         return sum;
@@ -129,17 +138,24 @@ public class Main {
 
     public static boolean isArraySortAsc(int[] arr) {
         System.out.println(Arrays.toString(arr));
-        int[] arrSort = Arrays.copyOf(arr, arr.length);
-        Arrays.sort(arrSort);
-        return Arrays.equals(arr, arrSort);
+        int mistakes = 0;
+        for (int i = 0; i < arr.length - 1; i++) {
+            if (arr[i] > arr[i + 1]) {
+                mistakes++;
+            }
+        }
+        return (mistakes == 0) ? true : false;
     }
 
     public static boolean isArraySortDesc(int[] arr) {
         System.out.println(Arrays.toString(arr));
-        int[] arrSort = Arrays.copyOf(arr, arr.length);
-        Arrays.sort(arrSort);
-        arrSort = reverseArray(arrSort);
-        return Arrays.equals(arr, arrSort);
+        int mistakes = 0;
+        for (int i = 0; i < arr.length - 1; i++) {
+            if (arr[i] < arr[i + 1]) {
+                mistakes++;
+            }
+        }
+        return (mistakes == 0) ? true : false;
     }
 
     public static int[] reverseArray(int[] arr) {
