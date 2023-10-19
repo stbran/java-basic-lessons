@@ -138,24 +138,22 @@ public class Main {
 
     public static boolean isArraySortAsc(int[] arr) {
         System.out.println(Arrays.toString(arr));
-        int mistakes = 0;
         for (int i = 0; i < arr.length - 1; i++) {
             if (arr[i] > arr[i + 1]) {
-                mistakes++;
+                return false;
             }
         }
-        return (mistakes == 0) ? true : false;
+        return true;
     }
 
     public static boolean isArraySortDesc(int[] arr) {
         System.out.println(Arrays.toString(arr));
-        int mistakes = 0;
         for (int i = 0; i < arr.length - 1; i++) {
             if (arr[i] < arr[i + 1]) {
-                mistakes++;
+                return false;
             }
         }
-        return (mistakes == 0) ? true : false;
+        return true;
     }
 
     public static int[] reverseArray(int[] arr) {
