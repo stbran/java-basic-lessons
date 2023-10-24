@@ -46,11 +46,9 @@ public class Main {
     }
 
     public static void printSquare(int size) {
-        char[][] arr = new char[size][size];
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                arr[i][j] = '*';
-                System.out.print(arr[i][j]);
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                System.out.print("*");
             }
             System.out.println();
         }
@@ -59,22 +57,17 @@ public class Main {
 
     public static void zeroForMainDiagonal(int[][] arr) {
         for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                if (i == j) {
-                    arr[i][j] = 0;
-                }
-            }
+            arr[i][i] = 0;
             System.out.println(Arrays.toString(arr[i]));
         }
         System.out.println();
     }
 
     public static void zeroForSecondaryDiagonal(int[][] arr) {
+        int j = arr.length - 1;
         for (int i = 0; i < arr.length; i++) {
-            for (int j = arr[i].length - 1 - i; j >= 0; ) {
-                arr[i][j] = 0;
-                break;
-            }
+            arr[i][j] = 0;
+            j--;
             System.out.println(Arrays.toString(arr[i]));
         }
         System.out.println();
@@ -93,8 +86,8 @@ public class Main {
     }
 
     public static int sumElementsOfSecondLine(int[][] arr) {
-        int sum = 0;
         if (arr.length > 1) {
+            int sum = 0;
             for (int i = 0; i < arr[1].length; i++) {
                 sum += arr[1][i];
             }
