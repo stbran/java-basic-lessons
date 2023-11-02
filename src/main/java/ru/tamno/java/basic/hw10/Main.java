@@ -16,8 +16,20 @@ public class Main {
         box2.putItem("молоток");
         box2.setOpen(false);
         box2.putItem("молоток");
+        box2.takeOutItem("молоток");
         box1.setColor("розовый");
         box1.info();
+        box1.setOpen(true);
+        box2.setOpen(true);
+        box2.printItems();
+        box1.printItems();
+        box1.putItem("ответрка", "гвозди", "схема", "инструкция", "шуруповерт", "сверло");
+        box1.printItems();
+        box1.takeOutItem("jhd");
+        box1.takeOutItem("гвозди", "инструкция", "ответрка", "схема", "молоток");
+        box1.takeOutItem("шуруповерт");
+        box1.printItems();
+        box1.putItem("молоток");
     }
 
     private static void checkUser() {
@@ -36,7 +48,7 @@ public class Main {
         };
 
         for (int i = 0; i < users.length; i++) {
-            if (curYear - users[i].birthYear > 40) {
+            if (curYear - users[i].getBirthYear() > 40) {
                 users[i].info();
             }
 
