@@ -3,17 +3,17 @@ package ru.tamno.java.basic.hw10;
 import java.util.Arrays;
 
 public class Box {
-    private float lengthBox;
-    private float widthBox;
+    private float length;
+    private float width;
     private String color;
     private boolean isOpen;
     private int capacity = 5;
     private String[] items = new String[capacity];
     private int countItemsIn = 0;
 
-    public Box(float lengthBox, float widthBox, String color, boolean isOpen) {
-        this.lengthBox = lengthBox;
-        this.widthBox = widthBox;
+    public Box(float length, float width, String color, boolean isOpen) {
+        this.length = length;
+        this.width = width;
         this.color = color;
         this.isOpen = isOpen;
     }
@@ -26,12 +26,12 @@ public class Box {
         isOpen = open;
     }
 
-    public float getLengthBox() {
-        return lengthBox;
+    public float getlength() {
+        return length;
     }
 
-    public float getWidthBox() {
-        return widthBox;
+    public float getwidth() {
+        return width;
     }
 
     public String getColor() {
@@ -44,10 +44,6 @@ public class Box {
 
     public int getCapacity() {
         return capacity;
-    }
-
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
     }
 
     public int getCountItemsIn() {
@@ -70,7 +66,7 @@ public class Box {
             statusBox = "Закрытая";
 
         }
-        System.out.println(statusBox + " коробка, размеры ШхД " + widthBox + "x" + lengthBox + ", цвет " + color);
+        System.out.println(statusBox + " коробка, размеры ШхД " + width + "x" + length + ", цвет " + color);
     }
 
 
