@@ -54,10 +54,6 @@ public class Box {
         return items;
     }
 
-    public void setItems(String[] items) {
-        this.items = items;
-    }
-
     public void info() {
         String statusBox;
         if (isOpen) {
