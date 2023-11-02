@@ -71,48 +71,49 @@ public class Box {
     }
 
     public void putItem(String... arrItems) {
-        if (isOpen) {
-            if (countItemsIn < capacity) {
-                System.out.print("В коробку положили ");
-                for (int i = 0; i < arrItems.length; i++) {
-                    if (i < items.length) {
-                        System.out.print(arrItems[i] + ", ");
-                        items[countItemsIn++] = arrItems[i];
-                    } else {
-                        System.out.print(arrItems[i] + " не влазит");
-                    }
+        if (!isOpen) {
+            System.out.println("Ничего нельзя положить. Коробка закрыта");
+            return;
+        }
+        if (capacity == countItemsIn) {
+            System.out.println("\nКоробка полная");
+            return;
+        }
+        if (countItemsIn < capacity) {
+            System.out.print("В коробку положили ");
+            for (int i = 0; i < arrItems.length; i++) {
+                if (i < items.length) {
+                    System.out.print(arrItems[i] + ", ");
+                    items[countItemsIn++] = arrItems[i];
+                } else {
+                    System.out.print(arrItems[i] + " не влазит");
                 }
             }
-            if (capacity == countItemsIn) {
-                System.out.println("\nКоробка полная");
-            }
-        } else {
-            System.out.println("Ничего нельзя положить. Коробка закрыта");
         }
     }
 
-
     public void takeOutItem(String... arrItems) {
-        if (isOpen) {
-            if (countItemsIn > 0) {
-                for (int i = 0; i < arrItems.length; i++) {
-                    for (int j = 0; j < items.length; j++) {
-                        if (arrItems[i].equals(items[j])) {
-                            items[j] = null;
-                            countItemsIn--;
-                            System.out.println("Из коробки достали " + arrItems[i]);
-                            break;
-                        } else if (j == items.length - 1) {
-                            System.out.println(arrItems[i] + " - такого предмета не нашлось");
-                        }
+        if (!isOpen) {
+            System.out.println("Ничего нельзя достать. Коробка закрыта");
+            return;
+        }
+        if (countItemsIn == 0) {
+            System.out.println("Коробка пустая");
+            return;
+        }
+        if (countItemsIn > 0) {
+            for (int i = 0; i < arrItems.length; i++) {
+                for (int j = 0; j < items.length; j++) {
+                    if (arrItems[i].equals(items[j])) {
+                        items[j] = null;
+                        countItemsIn--;
+                        System.out.println("Из коробки достали " + arrItems[i]);
+                        break;
+                    } else if (j == items.length - 1) {
+                        System.out.println(arrItems[i] + " - такого предмета не нашлось");
                     }
                 }
             }
-            if (countItemsIn == 0) {
-                System.out.println("Коробка пустая");
-            }
-        } else {
-            System.out.println("Ничего нельзя достать. Коробка закрыта");
         }
     }
 }

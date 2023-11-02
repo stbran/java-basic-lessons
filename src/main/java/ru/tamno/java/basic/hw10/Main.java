@@ -30,6 +30,7 @@ public class Main {
         box1.takeOutItem("шуруповерт");
         box1.printItems();
         box1.putItem("молоток");
+        box1.printItems();
     }
 
     private static void checkUser() {
