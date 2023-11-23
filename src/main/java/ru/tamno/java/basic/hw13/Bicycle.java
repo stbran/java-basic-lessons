@@ -1,7 +1,6 @@
 package ru.tamno.java.basic.hw13;
 
 public class Bicycle extends MeansOfTransportation {
-    Human human;
 
     public Bicycle(String name, float resourceConsumptionPerKm, int maxAmountResources) {
         super(name, resourceConsumptionPerKm, maxAmountResources);
@@ -13,7 +12,7 @@ public class Bicycle extends MeansOfTransportation {
             System.out.println("Куда едем-то?");
             return false;
         }
-        if (location.equals(Location.SWAMP)) {
+        if (location == Location.SWAMP) {
             System.out.println("На велосипеде не проехать по болоту");
             return false;
         }
@@ -25,20 +24,7 @@ public class Bicycle extends MeansOfTransportation {
         if (!conditionForLocation(location)) {
             return false;
         }
-        if (human.getDistancePower() == 0) {
-            System.out.println("Вы устали. Отдохните!");
-            return false;
-        }
-        if (distance >= human.getDistancePower()) {
-            System.out.println("Вы проехали на велосипеде " + human.getDistancePower() + " км и устали. Отдохните!");
-            human.setDistancePower(0);
-            return true;
-        }
-        if (distance < human.getDistancePower()) {
-            human.setDistancePower(human.getDistancePower() - distance);
-            System.out.println("Вы проехали на велосипеде " + distance + " км. Осталось сил на " + human.getDistancePower() + " км");
-            return true;
-        }
+        human.go(distance, location, "проехал на велосипеде");
         return false;
     }
 }

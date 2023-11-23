@@ -38,3 +38,8 @@ build/
 ### Mac OS ###
 .DS_Store
 
+/simulator/lesson11
+/src/main/java/ru/tamno/java/basic/simulator/lesson11/
+/src/main/java/ru/tamno/java/basic/hw12/
+
+/src/main/java/ru/tamno/java/basic/simulator/lesson14/

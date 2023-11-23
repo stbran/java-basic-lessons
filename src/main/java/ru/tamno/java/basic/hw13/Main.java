@@ -7,31 +7,25 @@ public class Main {
         Car kia = new Car("KIA", 1, 50);
         Human gob = new Human("Gob", kia);
         bob.getIn(hyndai);
-        bob.go(10, Location.FOREST, hyndai);
-        bob.go(100, Location.PLAIN, hyndai);
-        bob.go(10, Location.FOREST, kia);
+        bob.move(10, Location.FOREST);
+        bob.move(100, Location.PLAIN);
         bob.getOut(hyndai);
         bob.getIn(kia);
-        bob.go(110, Location.PLAIN, kia);
+        bob.move(110, Location.PLAIN);
         bob.getOut(kia);
-        bob.setMaxDistance(10);
-        bob.go(90, Location.PLAIN, null);
-        bob.relax();
-        System.out.println(bob.getCurrentTransport());
-        gob.go(10, Location.PLAIN, kia);
-        System.out.println(gob.getCurrentTransport());
+        bob.relax(10);
+        bob.move(90, Location.PLAIN);
+        gob.move(10, Location.PLAIN);
         Rover rover = new Rover("Луноход", 5, 200);
         bob.getIn(rover);
-        bob.go(100, Location.SWAMP, rover);
-        bob.go(100, Location.FOREST, rover);
+        bob.move(100, Location.SWAMP);
+        bob.move(100, Location.FOREST);
         rover.resuplly(200);
-        bob.go(100, Location.FOREST, rover);
+        bob.move(100, Location.FOREST);
         bob.getOut(rover);
         Bicycle bike = new Bicycle("stells", 5, 5);
+        bob.relax(10);
         bob.getIn(bike);
-        bob.relax();
-        bob.go(5, Location.FOREST, bike);
-        bob.go(100, Location.FOREST, bike);
-
+        bob.move(5, Location.FOREST);
     }
 }

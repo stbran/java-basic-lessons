@@ -11,7 +11,7 @@ public class Horse extends MeansOfTransportation {
             System.out.println("Куда едем-то?");
             return false;
         }
-        if (location.equals(Location.SWAMP)) {
+        if (location == Location.SWAMP) {
             System.out.println("На коне не проехать по болоту");
             return false;
         }

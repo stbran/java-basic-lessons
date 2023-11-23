@@ -6,6 +6,4 @@ public interface Transportation {
     void resuplly(float resources);
 
     boolean conditionForLocation(Location location);
-
-    String getName();
 }

@@ -11,7 +11,7 @@ public class Car extends MeansOfTransportation {
             System.out.println("Куда едем-то?");
             return false;
         }
-        if (location.equals(Location.SWAMP) || location.equals(Location.FOREST)) {
+        if (location == Location.SWAMP || location == Location.FOREST) {
             System.out.println("На машине не проехать по " + location);
             return false;
         }
