@@ -1,6 +1,7 @@
 package ru.tamno.java.basic.hw15;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
@@ -11,7 +12,7 @@ public class Main {
         System.out.println(increaseEachElementByNumber(2, sequenceMinMax(3, 8)));
         System.out.println();
 
-        ArrayList<Employee> employees = new ArrayList<>();
+        List<Employee> employees = new ArrayList<>();
         employees.add(new Employee("Bob", 18));
         employees.add(new Employee("Gob", 16));
         employees.add(new Employee("Dob", 20));
@@ -19,20 +20,20 @@ public class Main {
         employees.add(new Employee("Zob", 17));
 
         System.out.println(getNames(employees));
-        printArrayListOfObjects(legalAge(employees, 18));
+        printArrayListOfObjects(new ArrayList<>(legalAge(employees, 18)));
         System.out.println(checkAvgAge(employees, 18));
         System.out.println("Самый молодой сотрудник - " + searchJunior(employees).getName());
     }
 
-    public static ArrayList sequenceMinMax(int min, int max) {
-        ArrayList<Integer> arr = new ArrayList<>();
+    public static List sequenceMinMax(int min, int max) {
+        List<Integer> arr = new ArrayList<>();
         for (int i = min; i < max + 1; i++) {
             arr.add(i);
         }
         return arr;
     }
 
-    public static int sumElementsMore5(ArrayList<Integer> arr) {
+    public static int sumElementsMore5(List<Integer> arr) {
         int sum = 0;
         for (Integer elem : arr) {
             if (elem > 5) {
@@ -42,32 +43,32 @@ public class Main {
         return sum;
     }
 
-    public static ArrayList increaseEachElementByNumber(int number, ArrayList<Integer> arr) {
+    public static List increaseEachElementByNumber(int number, List<Integer> arr) {
         for (int i = 0; i < arr.size(); i++) {
             arr.set(i, arr.get(i) + number);
         }
         return arr;
     }
 
-    public static ArrayList<String> getNames(ArrayList<Employee> employees) {
-        ArrayList<String> names = new ArrayList<>();
+    public static List getNames(List<Employee> employees) {
+        List<String> names = new ArrayList<>();
         for (Employee elem : employees) {
             names.add(elem.getName());
         }
         return names;
     }
 
-    public static ArrayList<Employee> legalAge(ArrayList<Employee> employees, int age) {
-        ArrayList<Employee> employeesLegalAge = new ArrayList<>();
+    public static List legalAge(List<Employee> employees, int age) {
+        List<Employee> employeesLegalAge = new ArrayList<>();
         for (Employee elem : employees) {
             if (elem.getAge() >= age) {
-                employeesLegalAge.add(new Employee(elem.getName(), elem.getAge()));
+                employeesLegalAge.add(elem);
             }
         }
         return employeesLegalAge;
     }
 
-    public static boolean checkAvgAge(ArrayList<Employee> employees, int age) {
+    public static boolean checkAvgAge(List<Employee> employees, int age) {
         int avgAge = 0;
         for (Employee elem : employees) {
             avgAge += elem.getAge();
@@ -76,16 +77,15 @@ public class Main {
         return age < (float) avgAge / employees.size();
     }
 
-    public static Employee searchJunior(ArrayList<Employee> employees) {
+    public static Employee searchJunior(List<Employee> employees) {
         int minAge = employees.get(0).getAge();
-        int index = 0;
-        for (int i = 1; i < employees.size(); i++) {
-            if (employees.get(i).getAge() < minAge) {
-                minAge = employees.get(i).getAge();
-                index = i;
+        Employee junior = null;
+        for (Employee elem : employees) {
+            if (elem.getAge() < minAge) {
+                junior = elem;
             }
         }
-        return employees.get(index);
+        return junior;
     }
 
     public static void printArrayListOfObjects(ArrayList<Employee> employees) {
