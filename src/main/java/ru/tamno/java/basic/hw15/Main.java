@@ -25,7 +25,7 @@ public class Main {
         System.out.println("Самый молодой сотрудник - " + searchJunior(employees).getName());
     }
 
-    public static List sequenceMinMax(int min, int max) {
+    public static List<Integer> sequenceMinMax(int min, int max) {
         List<Integer> arr = new ArrayList<>();
         for (int i = min; i < max + 1; i++) {
             arr.add(i);
@@ -43,14 +43,14 @@ public class Main {
         return sum;
     }
 
-    public static List increaseEachElementByNumber(int number, List<Integer> arr) {
+    public static List<Integer> increaseEachElementByNumber(int number, List<Integer> arr) {
         for (int i = 0; i < arr.size(); i++) {
             arr.set(i, arr.get(i) + number);
         }
         return arr;
     }
 
-    public static List getNames(List<Employee> employees) {
+    public static List<String> getNames(List<Employee> employees) {
         List<String> names = new ArrayList<>();
         for (Employee elem : employees) {
             names.add(elem.getName());
@@ -58,7 +58,7 @@ public class Main {
         return names;
     }
 
-    public static List legalAge(List<Employee> employees, int age) {
+    public static List<Employee> legalAge(List<Employee> employees, int age) {
         List<Employee> employeesLegalAge = new ArrayList<>();
         for (Employee elem : employees) {
             if (elem.getAge() >= age) {
