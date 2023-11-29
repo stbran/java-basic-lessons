@@ -43,18 +43,15 @@ public class Human {
         }
     }
 
-    public boolean getOut(MeansOfTransportation transport) {
+    public boolean getOut() {
         if (currentTransport == null) {
             System.out.println(name + " стоит на земле");
             return false;
-        } else if (currentTransport == transport) {
+        } else {
             System.out.println(name + " вышел из " + currentTransport.getName());
             currentTransport.driver = null;
             currentTransport = null;
             return true;
-        } else {
-            System.out.println(name + " не в " + transport.getName());
-            return false;
         }
     }
 

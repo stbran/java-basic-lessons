@@ -9,10 +9,10 @@ public class Main {
         bob.getIn(hyndai);
         bob.move(10, Location.FOREST);
         bob.move(100, Location.PLAIN);
-        bob.getOut(hyndai);
+        bob.getOut();
         bob.getIn(kia);
         bob.move(110, Location.PLAIN);
-        bob.getOut(kia);
+        bob.getOut();
         bob.relax(10);
         bob.move(90, Location.PLAIN);
         gob.move(10, Location.PLAIN);
@@ -22,7 +22,7 @@ public class Main {
         bob.move(100, Location.FOREST);
         rover.resuplly(200);
         bob.move(100, Location.FOREST);
-        bob.getOut(rover);
+        bob.getOut();
         Bicycle bike = new Bicycle("stells", 5, 5);
         bob.relax(10);
         bob.getIn(bike);
