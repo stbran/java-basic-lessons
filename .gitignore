@@ -38,3 +38,4 @@ build/
 ### Mac OS ###
 .DS_Store
 
+/src/main/java/ru/tamno/java/basic/simulator/
