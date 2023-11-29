@@ -16,7 +16,7 @@ public class Main {
         }
     }
 
-    public static int sumElementsArray(String arr[][]) throws AppArraySizeException {
+    public static int sumElementsArray(String arr[][]) {
         for (int i = 0; i < arr.length; i++) {
             if (arr.length != 4 || arr[i].length != 4) {
                 throw new AppArraySizeException("Неверный размер массива");
