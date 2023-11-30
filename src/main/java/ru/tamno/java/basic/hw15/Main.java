@@ -78,10 +78,9 @@ public class Main {
     }
 
     public static Employee searchJunior(List<Employee> employees) {
-        int minAge = employees.get(0).getAge();
-        Employee junior = null;
+        Employee junior = employees.get(0);
         for (Employee elem : employees) {
-            if (elem.getAge() < minAge) {
+            if (elem.getAge() < junior.getAge()) {
                 junior = elem;
             }
         }
