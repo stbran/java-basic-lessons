@@ -11,6 +11,8 @@ public class Server {
         while (true) {
             Socket socket = serverSocket.accept();
             System.out.println("Client connected");
+            socket.getOutputStream().write("Доступные математические операции: +,-,* или /".getBytes());
+            socket.getOutputStream().flush();
             byte[] op = new byte[100];
             socket.getInputStream().read(op);
             String rawStr = new String(op).trim();
