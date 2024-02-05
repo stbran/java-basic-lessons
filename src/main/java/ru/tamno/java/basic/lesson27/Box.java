@@ -23,7 +23,7 @@ public class Box<T extends Fruit> {
     }
 
     public boolean compare(Box box) {
-        if (this.weight() >= box.weight()) {
+        if (this.weight() == box.weight()) {
             return true;
         }
         return false;
