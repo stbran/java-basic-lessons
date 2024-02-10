@@ -11,15 +11,14 @@ public class ListArrayConverter extends SimpleArgumentConverter {
 
     @Override
     protected Object convert(Object source, Class<?> targetType) {
+        List<Integer> arr = new ArrayList<>();
         if (!source.toString().equals("")) {
             String[] str = ((String) source).split("\\s*,\\s*");
-            List<Integer> arr = new ArrayList<>();
             for (int i = 0; i < str.length; i++) {
                 arr.add(Integer.parseInt(str[i]));
             }
-            return arr;
         }
-        return new ArrayList<>();
+        return arr;
     }
 
 }
