@@ -42,6 +42,7 @@ public class Main {
 
     static String[] parseLine() {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Введите имя файла и через пробел искомую последовательность символов:");
         String line = sc.nextLine();
         if (line.length() == 0) {
             return null;
