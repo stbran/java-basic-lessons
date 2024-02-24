@@ -1,10 +1,10 @@
 package ru.tamno.java.basic.homework11;
 
 public class MyStack<T> {
-    private MyLinkedList stack;
+    private MyLinkedList<T> stack;
 
     public MyStack() {
-        this.stack = new MyLinkedList();
+        this.stack = new MyLinkedList<>();
     }
 
     public T push(T data) {

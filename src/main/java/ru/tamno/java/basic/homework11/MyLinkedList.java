@@ -1,9 +1,9 @@
 package ru.tamno.java.basic.homework11;
 
 public class MyLinkedList<T> {
-    class Node {
+    class Node<T> {
         private T data;
-        private Node next;
+        private Node<T> next;
 
         public Node(T data) {
             this.data = data;
@@ -11,10 +11,10 @@ public class MyLinkedList<T> {
         }
     }
 
-    private Node head;
+    private Node<T> head;
 
     public void print() {
-        Node iterator = head;
+        Node<T> iterator = head;
         while (iterator != null) {
             System.out.println(iterator.data + " ");
             iterator = iterator.next;
@@ -22,22 +22,22 @@ public class MyLinkedList<T> {
     }
 
     public void addFirst(T data) {
-        Node node = new Node(data);
+        Node<T> node = new Node<>(data);
         if (this.head == null) {
             this.head = node;
         } else {
-            Node tmpHead = head;
+            Node<T> tmpHead = head;
             head = node;
             node.next = tmpHead;
         }
     }
 
     public void addLast(T data) {
-        Node node = new Node(data);
+        Node<T> node = new Node<>(data);
         if (this.head == null) {
             this.head = node;
         } else {
-            Node iterator = this.head;
+            Node<T> iterator = this.head;
             while (iterator.next != null) {
                 iterator = iterator.next;
             }
@@ -56,7 +56,7 @@ public class MyLinkedList<T> {
         if (this.head == null) {
             return null;
         }
-        Node iterator = this.head;
+        Node<T> iterator = this.head;
         while (iterator.next != null) {
             iterator = iterator.next;
         }
@@ -66,7 +66,7 @@ public class MyLinkedList<T> {
     public int getSize() {
         int size = 0;
         if (this.head != null) {
-            Node iterator = this.head;
+            Node<T> iterator = this.head;
             size = 1;
             while (iterator.next != null) {
                 iterator = iterator.next;
@@ -85,14 +85,14 @@ public class MyLinkedList<T> {
             addFirst(data);
             return;
         }
-        Node node = new Node(data);
-        Node iterator = this.head;
+        Node<T> node = new Node<>(data);
+        Node<T> iterator = this.head;
         position--;
         while (iterator.next != null && position > 0) {
             iterator = iterator.next;
             position--;
         }
-        Node tmp = iterator.next;
+        Node<T> tmp = iterator.next;
         iterator.next = node;
         node.next = tmp;
     }
@@ -102,12 +102,12 @@ public class MyLinkedList<T> {
             System.out.println("No!");
             return null;
         }
-        Node tmp;
+        Node<T> tmp;
         if (position == 0) {
             tmp = head;
             head = head.next;
         } else {
-            Node iterator = this.head;
+            Node<T> iterator = this.head;
             position--;
             while (iterator.next != null && position > 0) {
                 iterator = iterator.next;
@@ -127,7 +127,7 @@ public class MyLinkedList<T> {
         if (position == 0) {
             return head.data;
         }
-        Node iterator = this.head;
+        Node<T> iterator = this.head;
         while (iterator.next != null && position > 0) {
             iterator = iterator.next;
             position--;

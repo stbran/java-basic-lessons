@@ -1,10 +1,10 @@
 package ru.tamno.java.basic.homework11;
 
 public class MyQueue<T> {
-    private MyLinkedList queue;
+    private MyLinkedList<T> queue;
 
     public MyQueue() {
-        this.queue = new MyLinkedList();
+        this.queue = new MyLinkedList<>();
     }
 
     public void offer(T data) {
